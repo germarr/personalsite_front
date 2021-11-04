@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "lint": "next lint"
   },
@@ -11,8 +11,10 @@
     "@headlessui/react": "^1.4.1",
     "@heroicons/react": "^1.0.5",
     "@tailwindcss/typography": "^0.4.1",
+    "chart.js": "^3.6.0",
     "next": "12.0.2",
     "react": "17.0.2",
+    "react-chartjs-2": "^3.3.0",
     "react-dom": "17.0.2"
   },
   "devDependencies": {

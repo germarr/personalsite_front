@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
+// import Image from 'next/image'
 import Link from 'next/link'
 import ProjectCard from '../components/index/ProjectCard'
 import Blogcard from '../components/index/Blogcard'
@@ -7,6 +7,7 @@ import Blogcard from '../components/index/Blogcard'
 export default function Home({what, who, favt, proj, blogPost}) {
   const techstack = favt[0].tech1
   const lastpost = blogPost.length
+
   return (
     <div>
       <Head>
@@ -20,7 +21,8 @@ export default function Home({what, who, favt, proj, blogPost}) {
       <div className="flex mt-2 mx-3 gap-2 items-center justify-center">
       <div className="flex items-center justify-end">
         <div className="h-20 w-20 md:h-52 md:w-52 relative">
-          <Image objectFit="contain" layout="fill" className="shadow-xl rounded-tl-lg rounded-br-lg" src="https://imagesforpersonalsite.s3.us-west-2.amazonaws.com/header_image.png" alt="Photo of Gerardo M" />
+          <img src="https://imagesforpersonalsite.s3.us-west-2.amazonaws.com/header_image.png" alt="Photo of Gerardo M" className="shadow-xl rounded-tl-lg rounded-br-lg"/>
+          {/*<Image objectFit="contain" layout="fill" className="shadow-xl rounded-tl-lg rounded-br-lg" src="https://imagesforpersonalsite.s3.us-west-2.amazonaws.com/header_image.png" alt="Photo of Gerardo M" />*/}
         </div>
       </div>
       <div className="grid grid-cols-1">
@@ -68,26 +70,33 @@ export default function Home({what, who, favt, proj, blogPost}) {
         </div>
       </section>
       {/* Who am I? */}
-      <section className="grid grid-cols-1 md:grid-cols-2 mx-6 gap-y-2 gap-x-0 md:gap-x-2 md:gap-y-0">           
+      <section className="grid grid-cols-1 md:grid-cols-2 mx-6 gap-y-2 gap-x-0 md:gap-x-2 md:gap-y-0 pb-5">           
         <div className="grid grid-cols-1 place-content-center">
-          <div className="mb-1"><h1 className="text-xl md:text-4xl font-bold text-gray-800">who am i</h1></div>
-          <div><h3 className="text-xs font-semibold text-white bg-gray-600 p-1">{who.whoami}</h3></div>
-          <div className="space-y-6 mt-2">
-            <p className="text-gray-700 text-base font-normal">{who.whoamidesc}</p>
+          <div className="mb-1">
+            <h1 className="text-2xl md:text-4xl font-bold text-gray-800">who am i</h1>
+          </div>
+          <div><h2 className="text-xs md:text-base font-semibold text-white bg-gray-600 p-1">{who.whoami}</h2></div>
+          <div className="space-y-2 mt-2">
+            <p className="text-gray-700 text-base font-normal">{who.whoamidesc.slice(0,105)}</p>
+            <p className="text-gray-700 text-base font-normal">{who.whoamidesc.slice(105,422)}</p>
+            <p className="text-gray-700 text-base font-normal">{who.whoamidesc.slice(422,)}</p>
           </div>
         </div>       
         <div>
-          <div className="mb-1"><h1 className="text-2xl md:text-4xl font-bold text-gray-800">{favt[0].Title}</h1></div>
-          <h3 className="text-md font-semibold text-white bg-gray-600 p-1">{favt[0].Subtitle}</h3>
+          <div className="mb-1">
+            <h1 className="text-2xl md:text-4xl font-bold text-gray-800">{favt[0].Title}</h1>
+          </div>
+          <h2 className="text-xs md:text-base font-semibold text-white bg-gray-600 p-1">{favt[0].Subtitle}</h2>
           <div className="grid grid-cols-3">
             {techstack.map(({id,nameoftech,linkoftech,imageoftech})=>(
-              <a key={id} className="hover:cursor-pointer" title={nameoftech} href={linkoftech} target="_blank" className="shadow-md rounded-tl-md rounded-br-md">
+              <a rel="noreferrer" key={`a_${id}`} title={nameoftech} href={linkoftech} target="_blank" className="shadow-sm rounded-tl-md rounded-br-md hover:cursor-pointer">
                 <div className="flex items-center justify-center">
                   <p className="text-gray-900 font-thin mt-3 text-xs md:text-base">{nameoftech}</p>
                 </div>
                 <div className="flex items-center justify-center">
                   <div className="h-16 w-16 md:h-32 md:w-32 relative">
-                    <Image objectFit="contain" layout="fill" className="shadow-xl rounded-tl-lg rounded-br-lg" src={imageoftech} alt={`logo of ${nameoftech}`}/>
+                    <img className="rounded-tl-lg rounded-br-lg" src={imageoftech} alt={`logo of ${nameoftech}`}/>
+                    {/*<Image objectFit="contain" layout="fill" className="shadow-xl rounded-tl-lg rounded-br-lg" src={imageoftech} alt={`logo of ${nameoftech}`}/>*/}
                   </div> 
                 </div>
               </a>
@@ -96,13 +105,13 @@ export default function Home({what, who, favt, proj, blogPost}) {
         </div>
       </section>
       {/* Last Projects */}
-      <section className="mx-6 mt-2 bg-gray-200">
+      <section className="mx-6 mt-2 bg-gray-100 pb-5">
         <div className="grid grid-cols-1 py-4">
           <div className="flex justify-end items-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800">recent projects 🧪</h2>
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-800">recent projects 🧪</h2>
           </div>
           <div className="flex justify-end items-center">
-            <h3 className="text-base font-semibold text-white bg-gray-600 p-1">i ❤️ react and experimenting with apis.</h3>
+            <h3 className="text-xs md:text-base font-semibold text-white bg-gray-600 p-1">i ❤️ react and experimenting with apis.</h3>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 p-3 gap-y-2 md:gap-y-0 md:gap-x-2">
@@ -113,13 +122,13 @@ export default function Home({what, who, favt, proj, blogPost}) {
       {/* Blog Entries */}
       <section className="mx-6 mt-2">
         <div className="grid grid-cols-1">
-          <div className="flex justify-center md:justify-start items-center">
+          <div className="flex justify-start items-center">
             <Link href="/blog">
               <a className="text-gray-800 text-3xl font-bold  hover:pointer">latest blog entries 📚</a>
             </Link>
           </div>
           <div className="flex justify-start items-center">
-            <h3 className="text-base font-semibold text-white bg-gray-600 p-1">i mainly write about marketing analytics.</h3>
+            <h3 className="text-xs md:text-base font-semibold text-white bg-gray-600 p-1">i mainly write about marketing analytics.</h3>
           </div>
         </div>
         <div className="divide-y-2 divide-gray-500 md:mx-32">
@@ -136,7 +145,7 @@ export default function Home({what, who, favt, proj, blogPost}) {
 }
 
 
-export async function getServerSideProps(){
+export async function getStaticProps(){
   const cmspath = "https://strapi.legisladoresmx.fun/"
   
   const whatido = await fetch(`${cmspath}whatido`)

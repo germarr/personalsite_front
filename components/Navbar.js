@@ -5,7 +5,7 @@ import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import Link from "next/link"
 
 const navigation = [
-    { name: 'Projects', href: '/proyects', current: false },
+    { name: 'Projects', href: '/projects', current: false },
     { name: 'Blog', href: '/blog', current: false },
     { name: 'About Me', href: '/about', current: false },
     { name: 'Videos', href: '/videos', current: false }
@@ -35,16 +35,17 @@ export default function Navbar() {
                   </div>
                   <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                     <div className="flex-shrink-0 flex items-center">
-                      <Link className="hover:cursor-pointer" href="/"><img
-                        className="block lg:hidden h-16 w-auto"
-                        src="https://imagesforpersonalsite.s3.us-west-2.amazonaws.com/gerlog.png"
-                        alt="Workflow"
-                      /></Link>
-                      <Link className="hover:cursor-pointer" href="/"><img
-                        className="hidden lg:block h-16 w-auto hover:cursor-pointer"
-                        src="https://imagesforpersonalsite.s3.us-west-2.amazonaws.com/gerlog.png"
-                        alt="Workflow"
-                      /></Link>
+                      <Link className="hover:cursor-pointer" href="/index" passHref>
+                        <img className="block lg:hidden h-16 w-auto"
+                          src="https://imagesforpersonalsite.s3.us-west-2.amazonaws.com/gerlog.png"
+                          alt="Workflow"/>
+                      </Link>
+                      <Link className="hover:cursor-pointer" href="/index" passHref>
+                        <img className="hidden lg:block h-16 w-auto hover:cursor-pointer"
+                          src="https://imagesforpersonalsite.s3.us-west-2.amazonaws.com/gerlog.png"
+                          alt="Workflow"
+                        />
+                      </Link>
                     </div>
                     <div className="hidden sm:block sm:ml-6">
                       <div className="flex mt-3 ml-10 space-x-4">

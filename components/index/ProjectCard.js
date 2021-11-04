@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Image from "next/image"
+// import Image from "next/image"
 
 function ProjectCard({title, paragraph ,href,src}) {
     return (
@@ -8,16 +8,17 @@ function ProjectCard({title, paragraph ,href,src}) {
                 <div className="">
                     <a>
                         <div className="w-full h-full relative">
-                            <Image objectFit="contain" layout="fill" className="shadow-xl rounded-tl-lg rounded-br-lg" src={src} alt="" />
+                            <img className="shadow-xl rounded-tl-lg rounded-br-lg" src={src} alt=""/>
+                            {/*<Image objectFit="contain" layout="fill" className="shadow-xl rounded-tl-lg rounded-br-lg" src={src} alt="" />*/}
                         </div>
                     </a>
                 </div>
                 <div className="">
-                    <h2 className="text-sm md:text-xl font-bold truncate text-gray-800">{title}</h2>
-                    <p className="text-gray-600 text-xs md:text-lg">{paragraph}</p>
+                    <h2 className="text-sm md:text-lg font-bold truncate text-gray-800">{title}</h2>
+                    <p className="text-gray-600 text-xs md:text-base">{paragraph}</p>
                     <div className="mt-3">
                         <a href={href}>
-                        <button class="bg-pink-800 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded hover:cursor-pointer text-xs md:text-lg">
+                        <button className="bg-pink-800 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded hover:cursor-pointer text-xs md:text-base">
                         Live Project
                         </button>
                         </a>
